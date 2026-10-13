@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Blood Bank Management System</title><link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="topbar"><div class="brand"><span class="drop">♥</span><div><strong>LifeLink</strong><small>Blood Bank Management</small></div></div><span class="tag">JAVA FULL STACK PROJECT</span></header>
+<main class="container">
+  <section class="hero"><div><p class="eyebrow">DONATE BLOOD · SAVE LIVES</p><h1>Blood Bank<br><em>Management System</em></h1><p class="sub">Manage donor records, track available stock, and organize hospital blood requests in one place.</p></div><div class="hero-mark">+</div></section>
+  <section class="stats">
+    <article><span>Registered donors</span><strong id="donorCount">—</strong><small>Stored in database</small></article>
+    <article><span>Blood groups</span><strong>8</strong><small>ABO and Rh types</small></article>
+    <article><span>Pending requests</span><strong id="requestCount">—</strong><small>Awaiting staff review</small></article>
+  </section>
+  <section class="panel"><div class="section-head"><div><p class="eyebrow">INVENTORY OVERVIEW</p><h2>Available blood stock</h2></div><button class="outline" id="refreshBtn">Refresh data ↻</button></div><div id="inventory" class="inventory"><p class="muted">Sign in when prompted to load inventory.</p></div></section>
+  <section class="columns">
+    <section class="panel"><p class="eyebrow">DONOR REGISTRATION</p><h2>Add a donor</h2>
+      <form id="donorForm">
+        <label>Full name<input name="fullName" required maxlength="100" placeholder="Donor full name"></label>
+        <div class="two"><label>Phone<input name="phone" required placeholder="Phone number"></label><label>Blood group<select name="bloodGroup" required><option value="">Choose</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select></label></div>
+        <label>Email (optional)<input name="email" type="email" placeholder="name@example.com"></label>
+        <label>City<input name="city" required placeholder="City"></label><button class="primary" type="submit">Register donor</button><p class="form-message" id="donorMessage"></p>
+      </form>
+    </section>
+    <section class="panel"><p class="eyebrow">HOSPITAL REQUESTS</p><h2>Request blood</h2>
+      <form id="requestForm">
+        <label>Hospital name<input name="hospitalName" required placeholder="Hospital or clinic"></label>
+        <label>Contact person<input name="contactName" required placeholder="Authorized contact"></label>
+        <div class="two"><label>Phone<input name="phone" required placeholder="Phone number"></label><label>Blood group<select name="bloodGroup" required><option value="">Choose</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select></label></div>
+        <label>Units requested<input name="units" type="number" min="1" max="100" required value="1"></label>
+        <label>Notes (optional)<textarea name="notes" maxlength="500" placeholder="Additional information"></textarea></label><button class="primary" type="submit">Submit request</button><p class="form-message" id="requestMessage"></p>
+      </form>
+    </section>
+  </section>
+  <section class="panel"><div class="section-head"><div><p class="eyebrow">LATEST RECORDS</p><h2>Registered donors</h2></div></div><div class="table-wrap"><table><thead><tr><th>Name</th><th>Blood group</th><th>City</th><th>Phone</th></tr></thead><tbody id="donorRows"><tr><td colspan="4" class="muted">Loading records…</td></tr></tbody></table></div></section>
+  <section class="panel"><div class="section-head"><div><p class="eyebrow">REQUEST TRACKER</p><h2>Recent blood requests</h2></div></div><div class="table-wrap"><table><thead><tr><th>Hospital</th><th>Blood group</th><th>Units</th><th>Status</th><th>Created</th></tr></thead><tbody id="requestRows"><tr><td colspan="5" class="muted">Loading requests…</td></tr></tbody></table></div></section>
+  <p class="disclaimer">Academic demo only. Stock shown is an administrative record, not confirmation that blood is clinically suitable or ready for transfusion. Authorized blood-bank staff must verify screening, compatibility, crossmatching, and release.</p>
+</main><script src="/app.js"></script></body></html>
